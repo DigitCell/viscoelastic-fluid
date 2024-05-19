@@ -8,7 +8,7 @@ https://dl.acm.org/doi/10.1145/1073368.1073400
 This repository contains a TypeScript version of the original JavaScript implementation found here.
 https://github.com/kotsoft/particle_based_viscoelastic_fluid
 
-![](./images/Screenshot at 2024-05-19 11-33-17.png)
+![](./images/screenshot_2024-05-19_11-33-17.png)
 
 
 
@@ -16,6 +16,6 @@ https://github.com/kotsoft/particle_based_viscoelastic_fluid
 
 
 
-![](./images/Screenshot at 2024-05-19 11-33-40.png)
+![](./images/screenshot_2024-05-19_11-33-40.png)
 
 Feel free to use this description in your README.md or any other documentation for your repository.
