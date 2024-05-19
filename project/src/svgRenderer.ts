@@ -26,9 +26,9 @@ class SvgRenderer {
 
     // Add the goo filter
     const filter = defs.filter().attr({ id: 'goo' });
-    filter.gaussianBlur(3.5,3.5).attr({ in: 'SourceGraphic', result: 'blur' });
-    filter.colorMatrix('blur', 'matrix', { values: '1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 14 -7', result: 'goo' });
-    filter.composite('SourceGraphic', 'goo', { operator: 'atop', result: 'finalGoo' });
+    filter.gaussianBlur(5.5,5.5).attr({ in: 'SourceGraphic', result: 'blur' });
+    filter.colorMatrix("matrix",  "1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 13 -7").attr({ in: 'blur', result: 'goo' });
+    filter.composite('SourceGraphic', 'goo', 'atop').attr({ in: 'goo', result: 'finalGoo' });
 
     // Add the linear gradients
     
@@ -53,7 +53,7 @@ class SvgRenderer {
     // Clear existing circles before initializing new ones
     this.draw.clear();
 
-    //this.addFilter2(); // Re-add the filter after clearing
+    this.addFilter2(); // Re-add the filter after clearing
 
     this.circles = particles.map(p => {
         const speed = Math.min(Math.sqrt(p.velX * p.velX + p.velY * p.velY) * 55, 255);
