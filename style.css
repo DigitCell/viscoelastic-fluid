@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.simCanvas2D {
+	position: absolute;
+	width:  1024px;
+	height: 1024px;
+	top: 0;
+	left: 0;
+	/*width:  min(100vw, 100vh);
+	height: min(100vw, 100vh);*/
+}
+
+#svgoutput {
+	position: absolute;
+	width:  1024px;
+	height: 1024px;
+	top: 1048px;
+	left: 0px;
+	/*z-index: -1; /* To place it behind other elements */
+	background-color: #000000; /* Set your desired background color */
+}
