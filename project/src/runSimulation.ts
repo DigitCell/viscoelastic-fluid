@@ -45,7 +45,7 @@ export function runSimulation() {
     linViscosity: 0.0,
     quadViscosity: 0.1,
     kernelRadius: 40.0,
-    pointSize: 5,
+    pointSize: 15,
     gravX: 0.0,
     gravY: 0.5,
     dt: 1.0,
@@ -71,7 +71,7 @@ export function runSimulation() {
   gui.add(materialParams, 'linViscosity', 0.0, 0.5, 0.01).onChange(value => simulator.material.linViscosity = value);
   gui.add(materialParams, 'quadViscosity', 0.0, 0.5, 0.01).onChange(value => simulator.material.quadViscosity = value);
   gui.add(materialParams, 'kernelRadius', 5.0, 64.0, 1.0).onChange(value => simulator.material.kernelRadius = value);
-  gui.add(materialParams, 'pointSize', 1, 20, 1).onChange(value => simulator.material.pointSize = value);
+  gui.add(materialParams, 'pointSize', 1, 45, 1).onChange(value => simulator.material.pointSize = value);
   gui.add(materialParams, 'gravX', -0.5, 0.5, 0.01).onChange(value => simulator.material.gravX = value);
   gui.add(materialParams, 'gravY', -0.5, 0.5, 0.01).onChange(value => simulator.material.gravY = value);
   gui.add(materialParams, 'dt', 0.1, 1.0, 0.1).onChange(value => simulator.material.dt = value);

@@ -69,7 +69,7 @@ class Material {
         this.stiffness = stiffness;
         this.nearStiffness = nearStiffness;
         this.kernelRadius = kernelRadius;
-        this.pointSize = 5;
+        this.pointSize = 15;
         this.gravX = 0.0;
         this.gravY = 0.5;
         this.dt = 1;

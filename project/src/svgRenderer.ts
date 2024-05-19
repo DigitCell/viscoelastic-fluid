@@ -54,11 +54,10 @@ class SvgRenderer {
     this.draw.clear();
 
     this.addFilter2(); // Re-add the filter after clearing
-
+    this.circles = [];
     this.circles = particles.map(p => {
-        const speed = Math.min(Math.sqrt(p.velX * p.velX + p.velY * p.velY) * 55, 255);
-        const roundedSpeed = Math.round(speed);
-        const color = `rgb(255, 155, ${roundedSpeed})`;
+      const speed = this.calculateSpeed(p);
+      const color = this.calculateColor(speed);
       return this.draw.circle(material.pointSize).attr({
         cx: 100+p.posX,
         cy: 100+p.posY,
@@ -66,6 +65,20 @@ class SvgRenderer {
        
       });
     });
+  }
+
+  private calculateSpeed(p: Particle): number {
+    if (p == null || typeof p.velX !== 'number' || typeof p.velY !== 'number') {
+        return 0; // Default to 0 if p is null or velX/velY are not numbers
+    }
+    const velX = Math.max(Math.min(p.velX, 1000), -1000); // Clamping to prevent overflow
+    const velY = Math.max(Math.min(p.velY, 1000), -1000); // Clamping to prevent overflow
+    return Math.min(Math.sqrt(velX * velX + velY * velY) * 55, 235);
+  }
+
+  private calculateColor(speed: number): string {
+    const roundedSpeed = Math.round(speed);
+    return `rgb(255, 155, ${roundedSpeed})`;
   }
 
   update(particles: Particle[], material:Material): void {
@@ -76,9 +89,8 @@ class SvgRenderer {
     }
 
     particles.forEach((p, i) => {
-      const speed = Math.min(Math.sqrt(p.velX * p.velX + p.velY * p.velY) * 55, 255);
-      const roundedSpeed = Math.round(speed);
-      const color = `rgb(255, 155, ${roundedSpeed})`;
+      const speed = this.calculateSpeed(p);
+      const color = this.calculateColor(speed);
       this.circles[i].attr({
         cx: 100+p.posX,
         cy: 100+p.posY,
